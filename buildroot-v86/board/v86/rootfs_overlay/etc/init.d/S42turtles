@@ -1,0 +1,22 @@
+case "$1" in                                                                    
+  start)                                                                        
+        printf "Starting turtles: "
+	/sbin/modprobe mac80211_hwsim radios=16 #dyndbg=+p
+	[ -f /mnt/setup.sh ] && /mnt/setup.sh
+        [ $? = 0 ] && echo "OK" || echo "FAIL"                                  
+        ;;                                                                      
+  stop)                                                                         
+        printf "Stopping turtles: "
+	/sbin/rmmod mac80211_hwsim
+        [ $? = 0 ] && echo "OK" || echo "FAIL"                                  
+        ;;                                                                      
+  restart|reload)                                                               
+        "$0" stop                                                               
+        "$0" start                                                              
+        ;;                                                                      
+  *)                                                                            
+        echo "Usage: $0 {start|stop|restart}"                                   
+        exit 1                                                                  
+esac                                                                            
+                                                                                
+exit $?   
