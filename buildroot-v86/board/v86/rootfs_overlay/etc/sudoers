@@ -1,0 +1,2 @@
+turtle ALL=NOPASSWD: /mnt/shell.sh
+#/sbin/ifconfig, /usr/sbin/iw, /usr/bin/tcpdump, /usr/bin/turtle
