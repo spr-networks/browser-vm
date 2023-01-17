@@ -1,7 +1,7 @@
 case "$1" in                                                                    
   start)                                                                        
         printf "Starting turtles: "
-	/sbin/modprobe mac80211_hwsim radios=16 #dyndbg=+p
+	/sbin/modprobe mac80211_hwsim radios=32 #dyndbg=+p
 	[ -f /mnt/setup.sh ] && /mnt/setup.sh
         [ $? = 0 ] && echo "OK" || echo "FAIL"                                  
         ;;                                                                      
